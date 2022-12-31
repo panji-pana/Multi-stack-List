@@ -14,3 +14,5 @@ class Stack:
         pass
 ```
 I also realised this code would work for n stacks so it is implemented that way
+</br>
+Runs in O(n) time and O(n) space

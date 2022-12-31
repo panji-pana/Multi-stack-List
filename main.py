@@ -3,13 +3,13 @@ class Stack:
     # O(n) time
     # O(n) space
     
-    def __init__(self, numOfStacks):
+    def __init__(self, numOfStacks: int) -> None:
         self.list = []
         self.pointers = [-1]*numOfStacks
         self.notNumber = {}
 
 
-    def pop(self, stack_number):
+    def pop(self, stack_number: int) -> int:
         # pop like normal
         self.pointers[stack_number] -= 1
         # check if -2 or equal to another stacks's pointer
@@ -25,7 +25,7 @@ class Stack:
         return self.list[self.pointers[stack_number]]
 
 
-    def push(self, item, stack_number):
+    def push(self, item: int, stack_number: int) -> None:
         
         # not first element in stack n
         if self.pointers[stack_number] != -1:
@@ -53,32 +53,34 @@ class Stack:
                     temp.append(i)
             self.notNumber[stack_number] = temp
             
-    def peek(self, stack_number):
+    def peek(self, stack_number: int) -> int:
         return self.list[self.pointers[stack_number]]
             
-    def getList(self):
+    def getList(self) -> list:
         return self.list
                 
-        
-threeWayStack = Stack(3)
+def main():        
+    threeWayStack = Stack(3)
 
-# [(s2) 1,2,3, (s0) 1,2,5, (s1) 1,2,3,4]
+    # [(s2) 1,2,3, (s0) 1,2,5, (s1) 1,2,3,4]
 
-threeWayStack.push(1,2)
-threeWayStack.push(1,0)
-threeWayStack.push(1,1)
-threeWayStack.push(2,2)
-threeWayStack.push(2,1)
-threeWayStack.push(2,0)
-threeWayStack.push(3,1)
-threeWayStack.push(4,1)
-threeWayStack.push(3,2)
-threeWayStack.push(5,0)
+    threeWayStack.push(1,2)
+    threeWayStack.push(1,0)
+    threeWayStack.push(1,1)
+    threeWayStack.push(2,2)
+    threeWayStack.push(2,1)
+    threeWayStack.push(2,0)
+    threeWayStack.push(3,1)
+    threeWayStack.push(4,1)
+    threeWayStack.push(3,2)
+    threeWayStack.push(5,0)
 
-l = threeWayStack.getList()
-print(l)
-print(threeWayStack.peek(0),threeWayStack.peek(1),threeWayStack.peek(2))
-        
-secondStack = Stack(3)
-secondStack.pop(1)
+    l = threeWayStack.getList()
+    print(l)
+    print(threeWayStack.peek(0),threeWayStack.peek(1),threeWayStack.peek(2))
+            
+    secondStack = Stack(3)
+    secondStack.pop(1)
 
+if __name__ == "__main__":
+    main()
